@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Color Palette */
+:root {
+  --cream-100: #FDFCFB;
+  --cream-200: #FAF8F5;
+  --cream-300: #F5F2FF;
+  --sand-100: #E8E3DD;
+  --sand-200: #D4C5E8;
+  
+  --purple-500: #9B8DC7;
+  --purple-600: #7C6FAA;
+  
+  --gray-900: #2B2621;
+  --gray-600: #706864;
+  
+  --green-400: #A7C796;
+  --green-500: #8FB380;
+  
+  --blue-400: #9DCBE4;
+  --blue-500: #7BA8C2;
+  
+  --peach-400: #E8B59E;
+  --peach-500: #D4A088;
+  
+  --rose-400: #D4A5A5;
+  --rose-500: #C08F8F;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gradient-to-br from-[#FAF8F5] via-[#FDFCFB] to-[#F5F2FF];
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #9B8DC7, #7C6FAA);
+  border-radius: 10px;
+  border: 2px solid #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #7C6FAA, #9B8DC7);
+}
+
+/* Glassmorphism Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(232, 227, 221, 0.3);
+}
+
+/* Smooth Transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium Shadows */
+.shadow-premium {
+  box-shadow: 
+    0 10px 30px -5px rgba(124, 111, 170, 0.1),
+    0 4px 6px -2px rgba(124, 111, 170, 0.05);
+}
+
+.shadow-premium-lg {
+  box-shadow: 
+    0 20px 50px -10px rgba(124, 111, 170, 0.2),
+    0 10px 20px -5px rgba(124, 111, 170, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #9B8DC7, #7C6FAA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    #E8E3DD 4%,
+    #F5F2FF 25%,
+    #E8E3DD 36%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(155, 141, 199, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(155, 141, 199, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Gradient Background Animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  @apply -translate-y-1 shadow-premium-lg;
+}
+
+/* Premium Button */
+.btn-premium {
+  @apply px-6 py-3 rounded-2xl font-semibold text-white;
+  @apply bg-gradient-to-r from-[#9B8DC7] to-[#7C6FAA];
+  @apply hover:shadow-premium-lg transform hover:-translate-y-0.5;
+  @apply active:translate-y-0;
+  @apply transition-all duration-200;
+}
+
+/* Loading Spinner */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Stagger Children Animation */
+.stagger-children > * {
+  animation: fadeIn 0.6s ease-out backwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Selection Color */
+::selection {
+  background-color: rgba(155, 141, 199, 0.3);
+  color: #2B2621;
+}
+
+::-moz-selection {
+  background-color: rgba(155, 141, 199, 0.3);
+  color: #2B2621;
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid #9B8DC7;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Disable Tap Highlight on Mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Premium Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+  @apply bg-white/60 backdrop-blur-md border border-[#E8E3DD];
+  @apply rounded-2xl px-4 py-3 text-[#2B2621];
+  @apply focus:border-[#9B8DC7] focus:ring-2 focus:ring-[#9B8DC7]/20;
+  @apply transition-all duration-200;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+input[type="search"]:hover,
+textarea:hover,
+select:hover {
+  @apply border-[#D4C5E8];
+}
+
+/* Premium Checkbox */
+input[type="checkbox"] {
+  @apply w-5 h-5 rounded-lg border-2 border-[#E8E3DD];
+  @apply checked:bg-gradient-to-br checked:from-[#9B8DC7] checked:to-[#7C6FAA];
+  @apply focus:ring-2 focus:ring-[#9B8DC7]/20;
+  @apply transition-all duration-200;
+}
+
+/* Premium Radio Button */
+input[type="radio"] {
+  @apply w-5 h-5 border-2 border-[#E8E3DD];
+  @apply checked:bg-gradient-to-br checked:from-[#9B8DC7] checked:to-[#7C6FAA];
+  @apply focus:ring-2 focus:ring-[#9B8DC7]/20;
+  @apply transition-all duration-200;
+}
+
+/* Tooltip */
+.tooltip {
+  @apply absolute invisible opacity-0;
+  @apply bg-[#2B2621] text-white text-sm px-3 py-2 rounded-xl;
+  @apply transition-all duration-200;
+  @apply -top-10 left-1/2 transform -translate-x-1/2;
+  @apply whitespace-nowrap;
+}
+
+.tooltip::after {
+  content: '';
+  @apply absolute top-full left-1/2 transform -translate-x-1/2;
+  @apply border-4 border-transparent border-t-[#2B2621];
+}
+
+*:hover > .tooltip {
+  @apply visible opacity-100;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    @apply bg-white;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

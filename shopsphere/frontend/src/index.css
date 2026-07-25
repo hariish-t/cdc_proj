@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+body {
+  @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-dark-950 dark:via-dark-900 dark:to-dark-800;
+  @apply text-gray-900 dark:text-gray-100;
+  @apply font-sans antialiased;
+  @apply transition-colors duration-300;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+  /* Soft Purple Theme Variables */
+  :root {
+    --primary-700: #6B5E94;
+    --primary-600: #7C6FAA;
+    --primary-500: #9B8DC7;
+    --primary-400: #B5A8D8;
+    --primary-300: #CCC1E8;
+    --primary-200: #E2DCF0;
+    --primary-100: #F5F2FF;
+    
+    --accent-600: #8B7AA3;
+    --accent-500: #C4B5E0;
+    --accent-400: #D4C5E8;
+    
+    --bg-primary: #FDFCFB;
+    --bg-secondary: #FAF8F5;
+    --bg-surface: #F5F2FF;
+    
+    --text-dark: #2B2621;
+    --text-medium: #706864;
+    --text-light: #B4ABA5;
+    
+    --border-primary: #E8E3DD;
+    --border-accent: #D4C5E8;
+    
+    --success: #A7C796;
+    --warning: #E8C099;
+    --error: #D4A5A5;
+  }
+}
+
+@layer components {
+  /* Minimalist Split Container */
+  .auth-container-clean {
+    @apply flex flex-col md:flex-row w-full max-w-[950px] min-h-[580px];
+    @apply bg-white rounded-[2rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.05)];
+    @apply border border-slate-100;
+  }
+
+  /* Illustration Side */
+  .auth-illustration-side {
+    @apply hidden md:flex md:w-[45%] bg-slate-50 border-r border-slate-100;
+    @apply items-center justify-center p-12;
+  }
+
+  /* Form Side */
+  .auth-form-side {
+    @apply w-full md:w-[55%] p-10 md:p-16 flex flex-col justify-center bg-white;
+  }
+
+  /* Ultra-Clean Input with Soft Purple Focus */
+  .clean-input {
+    @apply w-full px-5 py-3.5 rounded-xl border border-slate-200 bg-white;
+    @apply text-slate-900 placeholder:text-slate-400 font-medium;
+    @apply focus:border-[#7C6FAA] focus:ring-4 focus:ring-[#7C6FAA]/10 outline-none;
+    @apply transition-all duration-200;
+  }
+
+  /* Soft Purple Corporate Button */
+  .btn-corp {
+    @apply w-full bg-[#7C6FAA] text-white font-bold py-4 rounded-xl;
+    @apply hover:bg-[#6b5f96] active:scale-[0.98] transition-all duration-200;
+    @apply shadow-lg shadow-[#7C6FAA]/20 flex items-center justify-center gap-2;
+  }
+
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply bg-white/70 dark:bg-dark-800/50;
+    @apply backdrop-blur-xl backdrop-saturate-150;
+    @apply border border-white/20 dark:border-white/10;
+    @apply rounded-2xl shadow-glass dark:shadow-glass-dark;
+    @apply transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply shadow-glass-dark dark:shadow-neon;
+    @apply scale-[1.02];
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600;
+    @apply bg-clip-text text-transparent;
+    @apply font-display font-bold;
+  }
+
+  /* Soft Purple Gradient Text */
+  .gradient-text-purple {
+    @apply bg-gradient-to-r from-[#7C6FAA] to-[#9B8DC7];
+    @apply bg-clip-text text-transparent;
+    @apply font-display font-bold;
+  }
+
+  /* Animated Button */
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600;
+    @apply text-white font-semibold;
+    @apply px-6 py-3 rounded-xl;
+    @apply shadow-lg hover:shadow-neon;
+    @apply transform hover:scale-105 active:scale-95;
+    @apply transition-all duration-200;
+    @apply relative overflow-hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0;
+    @apply bg-gradient-to-r from-white/20 to-transparent;
+    @apply translate-x-[-100%] hover:translate-x-[100%];
+    @apply transition-transform duration-500;
+  }
+
+  /* Soft Purple Button */
+  .btn-purple {
+    @apply bg-[#7C6FAA] text-white font-semibold;
+    @apply px-6 py-3 rounded-xl;
+    @apply shadow-lg shadow-[#7C6FAA]/20 hover:shadow-[#7C6FAA]/40;
+    @apply transform hover:scale-105 active:scale-95;
+    @apply transition-all duration-200;
+  }
+
+  /* Skeleton Loader */
+  .skeleton {
+    @apply bg-gray-200 dark:bg-dark-700;
+    @apply animate-pulse rounded;
+  }
+
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-dark-800 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-dark-600 rounded-full hover:bg-gray-400 dark:hover:bg-dark-500;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    @apply absolute z-50 px-3 py-2;
+    @apply bg-gray-900 dark:bg-dark-800;
+    @apply text-white text-sm font-medium;
+    @apply rounded-lg shadow-xl;
+    @apply opacity-0 invisible;
+    @apply transition-all duration-200;
+    @apply pointer-events-none;
+  }
+
+  .tooltip-parent:hover .tooltip {
+    @apply opacity-100 visible;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1;
+    @apply text-xs font-semibold rounded-full;
+    @apply transition-all duration-200;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+
+  .badge-error {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-info {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+
+  /* Soft Purple Badge */
+  .badge-purple {
+    @apply bg-[#F5F2FF] text-[#7C6FAA] border-2 border-[#D4C5E8];
+  }
+
+  /* Loading Spinner */
+  .spinner {
+    @apply inline-block w-8 h-8;
+    @apply border-4 border-gray-200 dark:border-dark-700;
+    @apply border-t-blue-600 dark:border-t-blue-500;
+    @apply rounded-full;
+    @apply animate-spin;
+  }
+
+  /* Purple Spinner */
+  .spinner-purple {
+    @apply inline-block w-8 h-8;
+    @apply border-4 border-[#E2DCF0];
+    @apply border-t-[#7C6FAA];
+    @apply rounded-full;
+    @apply animate-spin;
+  }
+
+  /* Glow Effect */
+  .glow {
+    @apply relative;
+  }
+
+  .glow::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl;
+    @apply bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500;
+    @apply opacity-0 blur-xl;
+    @apply transition-opacity duration-300;
+    z-index: -1;
+  }
+
+  .glow:hover::before {
+    @apply opacity-30;
+  }
+
+  /* Purple Glow */
+  .glow-purple::before {
+    @apply bg-gradient-to-r from-[#7C6FAA] to-[#9B8DC7];
+  }
+
+  /* Stat Card Animation */
+  .stat-card {
+    @apply glass-card p-6;
+    @apply transform hover:-translate-y-2;
+    @apply cursor-pointer;
+  }
+
+  /* Input Styles */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl;
+    @apply bg-white/50 dark:bg-dark-800/50;
+    @apply border border-gray-200 dark:border-dark-700;
+    @apply focus:border-blue-500 dark:focus:border-blue-600;
+    @apply focus:ring-2 focus:ring-blue-500/20;
+    @apply outline-none transition-all duration-200;
+    @apply backdrop-blur-sm;
+  }
+
+  /* Purple Input Field */
+  .input-field-purple {
+    @apply w-full px-4 py-3 rounded-xl;
+    @apply bg-white border-2 border-[#E8E3DD];
+    @apply focus:border-[#7C6FAA] focus:ring-4 focus:ring-[#7C6FAA]/10;
+    @apply outline-none transition-all duration-200;
+  }
+
+  /* Chart Container */
+  .chart-container {
+    @apply glass-card p-6;
+    @apply min-h-[300px];
+  }
+
+  /* Notification Ping */
+  .notification-ping {
+    @apply absolute top-0 right-0;
+    @apply w-3 h-3 rounded-full;
+    @apply bg-red-500 animate-ping;
+  }
+
+  /* Purple Card (for dashboard components) */
+  .card-purple {
+    @apply bg-white border-2 border-[#E8E3DD] rounded-2xl;
+    @apply shadow-sm hover:shadow-lg hover:shadow-[#7C6FAA]/10;
+    @apply transition-all duration-300;
+  }
+
+  /* Purple Card with Gradient Background */
+  .card-purple-gradient {
+    @apply bg-gradient-to-br from-white to-[#F5F2FF];
+    @apply border-2 border-[#D4C5E8] rounded-2xl;
+    @apply shadow-sm hover:shadow-lg hover:shadow-[#7C6FAA]/10;
+    @apply transition-all duration-300;
+  }
+}
+
+/* Custom animations for charts */
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.chart-animate {
+  animation: slideInFromBottom 0.5s ease-out;
+}
+
+/* Number counter animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.count-up {
+  animation: countUp 0.5s ease-out;
+}
+
+/* Purple pulse animation */
+@keyframes pulsePurple {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(124, 111, 170, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(124, 111, 170, 0);
+  }
+}
+
+.pulse-purple {
+  animation: pulsePurple 2s infinite;
+}
+
+/* Recharts custom styling */
+.recharts-surface {
+  @apply rounded-xl overflow-hidden;
+}
+
+.recharts-tooltip-wrapper {
+  @apply glass-card !important;
+}
+
+/* React Hot Toast Custom Styles */
+.toast-success {
+  @apply glass-card !important;
+  @apply border-l-4 border-green-500 !important;
+}
+
+.toast-error {
+  @apply glass-card !important;
+  @apply border-l-4 border-red-500 !important;
+}
+
+.toast-loading {
+  @apply glass-card !important;
+  @apply border-l-4 border-blue-500 !important;
+}
+
+/* Purple Toast Variants */
+.toast-purple {
+  @apply bg-[#F5F2FF] border-l-4 border-[#7C6FAA] !important;
+  @apply text-[#2B2621] !important;
+}
